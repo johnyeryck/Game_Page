@@ -7,6 +7,7 @@ import React from 'react'
 import { Suspense } from 'react'
 import {QueryClient , QueryClientProvider} from '@tanstack/react-query'
 import Creator from './pages/Creator.tsx'
+import LoginPage from './pages/login.tsx'
 const queryClient = new QueryClient()
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path : "/creator",
     element : <Creator/>
+  },
+  {
+    path : "/login",
+    element : <LoginPage/>
   }
 ])
 

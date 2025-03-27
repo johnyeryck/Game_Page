@@ -2,7 +2,7 @@ import Hub from '../assets/logo/hub.png'
 import Gamers from '../assets/logo/gamers.png'
 import Carrinho from '../assets/logo/carrinho-de-compras.png'
 import {Link } from 'react-router-dom'
-
+import Usuario from '../assets/logo/usuario.png'
 function Nav() {
     return (
         
@@ -15,9 +15,10 @@ function Nav() {
 
             </div>
             
-            <Link to="/cart" className='size-8 ml-auto mt-11 mr-28 cursor-pointer'>
-                <img src={Carrinho} className='size' alt="Shopping Cart"/>
+            <Link to="/cart" className='size-8 ml-auto mt-11 mr-3 cursor-pointer '>
+                <img src={Carrinho}  alt="Shopping Cart"/>
             </Link>
+                <img className='size-11 mt-9  mr-24 cursor- ' src={Usuario}></img>
         </nav>
     )
 }

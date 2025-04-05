@@ -3,5 +3,4 @@ interface DataGames {
     description : string,
     img : string
 }
-
 export default DataGames

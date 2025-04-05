@@ -11,13 +11,19 @@ app.use(cors({
 app.use(express.json())
 
 
-let data = {
+let data = []
    
-}
+
 app.post('/',(req , res)=>{
-   data = req.body;
+
+   data = [...data, req.body]
+   
+
+   res.status(200).json({
+      message: 'Dados recebidos com sucesso',
+      data: data
   
-})
+})})
 
 app.get('/',(req,res)=>{
    res.status(200).json(data) 

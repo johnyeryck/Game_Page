@@ -3,7 +3,9 @@ import Gamers from '../assets/logo/gamers.png'
 import Carrinho from '../assets/logo/carrinho-de-compras.png'
 import {Link } from 'react-router-dom'
 import Usuario from '../assets/logo/usuario.png'
+import { useState } from 'react'
 function Nav() {
+    const [isVisible, setVisible] = useState <Boolean>(false)
     return (
         
         <nav className="w-full bg-black h-20 flex z-10 top-0 fixed ">
@@ -18,7 +20,19 @@ function Nav() {
             <Link to="/cart" className='size-8 ml-auto mt-11 mr-3 cursor-pointer '>
                 <img src={Carrinho}  alt="Shopping Cart"/>
             </Link>
-                <img className='size-11 mt-9  mr-24 cursor- ' src={Usuario}></img>
+            <div onMouseEnter={()=> setVisible(true)} onMouseLeave={()=> setVisible(false)} className="relative group">
+
+                <img className='size-11 mt-9  mr-24 cursor-pointer ' src={Usuario}></img>
+                {
+                isVisible && (
+                    <ul className="absolute left-0 group-hover:block bg-gray-300 text-black shadow-lg rounded-md w-24 font-semibold">
+                        <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer">Perfil</li>
+                        <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer ">Config</li>
+                    </ul>
+
+                )
+                }
+            </div>
         </nav>
     )
 }

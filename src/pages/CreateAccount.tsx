@@ -5,7 +5,7 @@ function CreateAccount (){
     const {register,handleSubmit, formState : {errors} } = useForm()
     const onSubmit = async (e : any)=>{
         try {
-            const dados = {email : e.email , senha : e.senha  , id : uuidv4()}
+            const dados = {email : e.email , senha : e.senha  , id : uuidv4() , CanLoginIN : true , user : e.User}
             await fetch('http://localhost:3000', {
                 method: 'POST',
                 headers: {
@@ -47,11 +47,19 @@ function CreateAccount (){
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                </div>
+               <div className="mt-5 flex flex-col">
+                    <label className="font-bold ml-4  opacity-75" >User</label>
+                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 "  {...register('User' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
+                    {errors.senha && (
+                        <p className='text-red-400'>Esse Campo é Obrigatório</p>
+                    )}
+               </div>
                <button className=" bg-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold"  type="submit" >Criar Conta</button>
                <div className='flex mt-6  px-3 font-bold mb-6'>
                    <p>Já tem uma conta?</p>
                    <a href='http://localhost:5173/login' className='text-blue-400 ml-1'>Entrar</a>
-               </div>
+                   
+             </div>
             </form>
         </div>
     )

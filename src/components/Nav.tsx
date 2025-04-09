@@ -3,9 +3,14 @@ import Gamers from '../assets/logo/gamers.png'
 import Carrinho from '../assets/logo/carrinho-de-compras.png'
 import {Link } from 'react-router-dom'
 import Usuario from '../assets/logo/usuario.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 function Nav() {
+    const [isLoged ,setlogin] = useState <Boolean>(false)
     const [isVisible, setVisible] = useState <Boolean>(false)
+    const [user ,setUser]= useState<string>("Algostinho")
+    
+    
+
     return (
         
         <nav className="w-full bg-black h-20 flex z-10 top-0 fixed ">
@@ -21,13 +26,23 @@ function Nav() {
                 <img src={Carrinho}  alt="Shopping Cart"/>
             </Link>
             <div onMouseEnter={()=> setVisible(true)} onMouseLeave={()=> setVisible(false)} className="relative group">
+                {
+                    isLoged &&(
+                        <div className='flex mr-3 '>
+                            <img className='size-11 mt-9   cursor-pointer ' src={Usuario}></img>
+                            <p className='text-white mt-12 font-bold'>{user}</p>
+                        </div>
 
-                <img className='size-11 mt-9  mr-24 cursor-pointer ' src={Usuario}></img>
+                    )
+                }
                 {
                 isVisible && (
                     <ul className="absolute left-0 group-hover:block bg-gray-300 text-black shadow-lg rounded-md w-24 font-semibold">
                         <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer">Perfil</li>
                         <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer ">Config</li>
+                        <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer" onClick={()=>{
+                            setUser("")
+                        }}>Sair</li>                        
                     </ul>
 
                 )

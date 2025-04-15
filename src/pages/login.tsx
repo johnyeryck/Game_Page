@@ -1,10 +1,27 @@
+import { response } from "express";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 function LoginPage (){
-    const { register,formState: {errors}} = useForm()
+    const [currentData , setState] = useState<[] | any>()
+    const { handleSubmit,register,formState: {errors}} = useForm()
+    const onSubmit = async ()=>{
+        try{
+            const res = await fetch('http://localhost:3000', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            const data = await res.json()
+            console.log(data[0])
+        }catch{
+
+        }
+    }
     return (
         <div className="text-white border-2 border-gray-500 w-1/4  h-80 mr-auto ml-auto rounded-sm mt-32">
         <h1 className="font-bold text-center   ">Login</h1>
-        <form className="mt-10 ml-14 " >
+        <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col">
                 <label className="font-bold ml-4 opacity-75 size-9 ">Email</label>
                 <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto " type="email" {...register("email" ,{required : true } , )} />

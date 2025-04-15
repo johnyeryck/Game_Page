@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-backend/ .env
+backend/.env
 
 build/
 node_modules

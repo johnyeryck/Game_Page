@@ -3,6 +3,7 @@ import Gamers from '../assets/logo/gamers.png'
 import Carrinho from '../assets/logo/carrinho-de-compras.png'
 import {Link } from 'react-router-dom'
 import Usuario from '../assets/logo/usuario.png'
+import Newlogo from '../assets/logo/WhatsApp Image 2025-04-16 at 23.08.41.jpeg'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
@@ -18,7 +19,6 @@ function Nav() {
         return result
         
 }})  
-    console.log(data)
     const [isLoged ,setlogin] = useState <Boolean>(false)
     const [isVisible, setVisible] = useState <Boolean>(false)
     
@@ -27,13 +27,10 @@ function Nav() {
     return (
         
         <nav className="w-full bg-black h-20 flex z-10 top-0 fixed ">
-            <div className='flex'>
             <Link to="/" className='flex cursor-pointer'>
-                <img className='w-36 h-9 mt-10 ml-5' src={Gamers} alt="Gamers Logo"/>
-                <img src={Hub} className='h-9 mt-10' alt="Hub Logo"/>
+                <img className='w-36 h-12 mt-6 ml-5' src={Newlogo} alt="Gamers Logo"/>
             </Link>
 
-            </div>
             
             <Link to="/cart" className='size-8 ml-auto mt-11 mr-3 cursor-pointer '>
                 <img src={Carrinho}  alt="Shopping Cart"/>
@@ -49,7 +46,7 @@ function Nav() {
                                 <ul className="absolute top-20 group-hover:block bg-gray-300 text-black shadow-lg rounded-md w-24 font-semibold">
                                     <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer">Perfil</li>
                                     <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer ">Config</li>
-                                    <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer">Sair</li>                        
+                                    <li className="py-2 px-4 hover:bg-purple-600 hover:rounded-md cursor-pointer" onClick={()=> setlogin(false)}>Sair</li>                        
                                 </ul>
                             
                             )

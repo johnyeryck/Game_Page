@@ -26,7 +26,7 @@ function Nav() {
 
     return (
         
-        <nav className="w-full bg-black h-20 flex z-10 top-0 fixed ">
+        <nav className="w-full bg-black h-20 flex z-10 top-0 fixed">
             <Link to="/" className='flex cursor-pointer'>
                 <img className='w-36 h-12 mt-6 ml-5' src={Newlogo} alt="Gamers Logo"/>
             </Link>

@@ -1,9 +1,11 @@
+import Nav from '@/components/Nav'
 import { useForm } from 'react-hook-form'
 import {v4 as uuidv4} from 'uuid'
 uuidv4()
 function CreateAccount (){
     const {register,handleSubmit, formState : {errors} } = useForm()
     const onSubmit = async (e : any)=>{
+        console.log(typeof e)
         try {
             const dados = {email : e.email , senha : e.senha  , id : uuidv4() , CanLoginIN : true , user : e.User}
             await fetch('http://localhost:3000', {
@@ -31,25 +33,25 @@ function CreateAccount (){
     }}
     return(
         <div className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
-            <h1 className="font-bold ml-28  mt-3 ">Crie sua Conta</h1>
+            <h1 className="font-bold text-center  mt-3 ">Crie sua Conta</h1>
             <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col">
-                    <label className="font-bold ml-4 opacity-75 size-9 ">Email</label>
+                    <label className="font-bold ml-2 opacity-75 size-9 ">Email</label>
                     <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto " type="email" {...register("email" ,{required : true } , )} />
                     {errors.email && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                 </div>
                <div className="mt-5">
-                    <label className="font-bold ml-4  opacity-75" >Password</label>
-                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto" type='password' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
+                    <label className="font-bold ml-2  opacity-75 " htmlFor='senha' >Password</label>
+                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto mt-2 " type='password' id='senha' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
                     {errors.senha && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                </div>
                <div className="mt-5 flex flex-col">
-                    <label className="font-bold ml-4  opacity-75" >User</label>
-                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 "  {...register('User' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
+                    <label className="font-bold ml-2  opacity-75" >User</label>
+                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mt-2"  {...register('User' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
                     {errors.senha && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}

@@ -1,5 +1,6 @@
-import express from 'express'
-import cors from 'cors'
+const express = require('express');
+const cors = require('cors');
+const Pool = require('./db')
 const app = express()
 
 app.use(cors({
@@ -11,11 +12,14 @@ app.use(cors({
 app.use(express.json())
 
 let data = []
-   // Middleware para processar o corpo da requisição
-app.post('/',(req , res)=>{
+app.post('/',async (req , res)=>{
 
-   data = [...data, req.body]
-   
+   data = [...data ,req.body]
+   try{
+      const result = await Pool.query('INSERT INTO usuarios (email,senha, usuario) VALUES ($1, $2, $3) RETURNING *', [data.email, data.senha, data.usuario])
+   }catch{
+
+   }
 
    res.status(200).json({
       message: 'Dados recebidos com sucesso',
@@ -28,4 +32,4 @@ app.get('/',(req,res)=>{
    res.status(200).json(data) 
 })
 
-module.exports = app;
+module.exports = app

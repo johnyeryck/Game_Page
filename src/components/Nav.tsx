@@ -1,11 +1,8 @@
-import Hub from '../assets/logo/hub.png'
-import Gamers from '../assets/logo/gamers.png'
 import Carrinho from '../assets/logo/carrinho-de-compras.png'
 import {Link } from 'react-router-dom'
 import Usuario from '../assets/logo/usuario.png'
 import Newlogo from '../assets/logo/WhatsApp Image 2025-04-16 at 23.08.41.jpeg'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import {useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 function Nav() {
     const {data} = useQuery({
@@ -13,6 +10,7 @@ function Nav() {
         queryFn : async () => {
         const res = await fetch('http://localhost:3000')
         const result = await res.json()
+        console.log(result)
         if(result[0].user){
             setlogin(true)
         }

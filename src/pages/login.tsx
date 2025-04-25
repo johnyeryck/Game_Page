@@ -13,7 +13,7 @@ function LoginPage (){
                 },
             })
             const data = await res.json()
-            console.log(data[0])
+            console.log(data[0].email)
         }catch{
 
         }

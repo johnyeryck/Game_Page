@@ -12,11 +12,13 @@ app.use(cors({
 app.use(express.json())
 
 let data = []
+   // Middleware para processar o corpo da requisição
 app.post('/',async (req , res)=>{
 
-   data = [...data ,req.body]
+   data = [...data,req.body]
    try{
-      const result = await Pool.query('INSERT INTO usuarios (email,senha, usuario) VALUES ($1, $2, $3) RETURNING *', [data.email, data.senha, data.usuario])
+   const result = await Pool.query('INSERT INTO usuarios (email,senha, usuario) VALUES ($1, $2, $3) RETURNING *', [data.email, data.senha, data.usuario])
+   console.log(result.rows[0])
    }catch{
 
    }

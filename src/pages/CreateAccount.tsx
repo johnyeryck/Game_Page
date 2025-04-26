@@ -1,4 +1,3 @@
-import Nav from '@/components/Nav'
 import { useForm } from 'react-hook-form'
 import {v4 as uuidv4} from 'uuid'
 uuidv4()
@@ -21,7 +20,7 @@ function CreateAccount (){
                 if (response.ok) {
                     alert('Conta criada com sucesso');
                 } else {
-                    console.error('Erro ao criar conta');
+                    alert('Erro ao criar conta');
                 }
             }
             

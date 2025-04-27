@@ -1,4 +1,3 @@
-import { response } from "express";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 function LoginPage (){
@@ -13,7 +12,6 @@ function LoginPage (){
                 },
             })
             const data = await res.json()
-            console.log(data[0].email)
         }catch{
 
         }

@@ -3,17 +3,20 @@ import { useForm } from "react-hook-form";
 function LoginPage (){
     const [currentData , setState] = useState<[] | any>()
     const { handleSubmit,register,formState: {errors}} = useForm()
-    const onSubmit = async ()=>{
+    const onSubmit = async (e : any)=>{
         try{
+            const dados = {email : e.email , senha : e.senha}
             const res = await fetch('http://localhost:3000', {
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                body: JSON.stringify(dados),
             })
             const data = await res.json()
+            console.log(data)
         }catch{
-
+            
         }
     }
     return (

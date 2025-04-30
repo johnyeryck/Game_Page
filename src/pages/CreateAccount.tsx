@@ -1,10 +1,12 @@
 import { useForm } from 'react-hook-form'
 import {v4 as uuidv4} from 'uuid'
+import {Eye, EyeOff} from 'lucide-react'
+import { useState } from 'react'
 uuidv4()
 function CreateAccount (){
+    const [showPassword , setShow] = useState<boolean>(false)
     const {register,handleSubmit, formState : {errors} } = useForm()
     const onSubmit = async (e : any)=>{
-        console.log(typeof e)
         try {
             const dados = {email : e.email , senha : e.senha  , id : uuidv4() , CanLoginIN : true , user : e.User}
             await fetch('http://localhost:3000', {
@@ -36,20 +38,26 @@ function CreateAccount (){
             <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col">
                     <label className="font-bold ml-2 opacity-75 size-9 ">Email</label>
-                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto " type="email" {...register("email" ,{required : true } , )} />
+                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto " type="email" {...register("email" ,{required : true } , )}  />
                     {errors.email && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                 </div>
                <div className="mt-5">
                     <label className="font-bold ml-2  opacity-75 " htmlFor='senha' >Password</label>
-                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto mt-2 " type='password' id='senha' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
+                    <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto mt-2 "  id='senha' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })} type={showPassword ? 'text' : 'password'}/>
+                    
                     {errors.senha && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
+                    <button
+                        type="button"
+                        onClick={() => setShow(!showPassword)}
+                        className="bg-transparent "
+                    > {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}</button>
                </div>
                <div className="mt-5 flex flex-col">
-                    <label className="font-bold ml-2  opacity-75" >User</label>
+                    <label className="font-bold ml-2  opacity-75" >Username</label>
                     <input className="bg-gray-600 rounded-sm px-3 w-3/4 mt-2"  {...register('User' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
                     {errors.senha && (
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>

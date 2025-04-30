@@ -43,7 +43,7 @@ function CreateAccount (){
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                 </div>
-               <div className="mt-5">
+               <div className="mt-5 relative">
                     <label className="font-bold ml-2  opacity-75 " htmlFor='senha' >Password</label>
                     <input className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto mt-2 "  id='senha' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })} type={showPassword ? 'text' : 'password'}/>
                     
@@ -53,8 +53,8 @@ function CreateAccount (){
                     <button
                         type="button"
                         onClick={() => setShow(!showPassword)}
-                        className="bg-transparent "
-                    > {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}</button>
+                        className="bg-transparent right-19 bottom-1 absolute"
+                    > {showPassword ? <EyeOff size={20} color='gray' /> : <Eye size={20} />}</button>
                </div>
                <div className="mt-5 flex flex-col">
                     <label className="font-bold ml-2  opacity-75" >Username</label>
@@ -63,7 +63,7 @@ function CreateAccount (){
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                </div>
-               <button className=" bg-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold"  type="submit" >Criar Conta</button>
+               <button className=" border-2 border-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold "  type="submit" >Criar Conta</button>
                <div className='flex mt-6  px-3 font-bold mb-6'>
                    <p>Já tem uma conta?</p>
                    <a href='http://localhost:5173/login' className='text-blue-400 ml-1'>Entrar</a>

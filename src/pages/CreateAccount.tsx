@@ -63,7 +63,7 @@ function CreateAccount (){
                         <p className='text-red-400'>Esse Campo é Obrigatório</p>
                     )}
                </div>
-               <button className=" border-2 border-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold "  type="submit" >Criar Conta</button>
+                <button className=" border-2 border-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold " type="submit" >Criar Conta</button>
                <div className='flex mt-6  px-3 font-bold mb-6'>
                    <p>Já tem uma conta?</p>
                    <a href='http://localhost:5173/login' className='text-blue-400 ml-1'>Entrar</a>

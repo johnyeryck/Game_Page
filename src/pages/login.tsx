@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import {Eye , EyeOff} from "lucide-react"
 function LoginPage (){
-    const [currentData , setState] = useState<[] | any>()
+    const [showPass , setvalue] = useState<boolean>(false)
     const { handleSubmit,register,formState: {errors}} = useForm()
     const onSubmit = async (e : any)=>{
         try{
@@ -30,12 +31,17 @@ function LoginPage (){
                     <p className='text-red-400'>Esse Campo é Obrigatório</p>
                 )}
             </div>
-           <div className="mt-3">
+           <div className="mt-3 relative">
                 <label className="font-bold   opacity-75 " >Password</label>
-                <input className="bg-gray-600 rounded-sm mt-2 w-3/4 mr-auto ml-auto px-3 " type='password' {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
+                <input className="bg-gray-600 rounded-sm mt-2 w-3/4 mr-auto ml-auto px-3 " type={showPass ? 'text' : 'password'} {...register('senha' , {required : {value : true , message : "Esse campo é obrigat" } , minLength : 4 })}/>
                 {errors.senha && (
                     <p className='text-red-400 text-sm mt-2'>*Esse Campo é Obrigatório</p>
                 )}
+                 <button
+                        type="button"
+                        onClick={() => setvalue(!showPass)}
+                        className="bg-transparent right-20 transition-all bottom-6 absolute cursor-pointer"
+                    > {showPass ? <EyeOff size={20} color='white' /> : <Eye size={20} />}</button>
                 <a href="">
                 <p className="text-sm text-blue-400" >Esqueceu a senha?</p>
                 </a>

@@ -40,8 +40,10 @@ app.post('/',async (req , res)=>{
 
 app.get('/',async(req,res)=>{
    res.status(200).json(data);
+   console.log(req.method)
    if(req.method === 'GET'){
-   //   await pool.query('SELECT * FROM usuarios WHERE email = $1', [])
+     const result = await pool.query('SELECT * FROM usuarios WHERE email = $1 AND senhar = $2', [data.email,data.senha])
+     console.log(result.rows)
    }
 })
 export default app

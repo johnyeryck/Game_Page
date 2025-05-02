@@ -21,6 +21,7 @@ function CreateAccount (){
             ).then((response) => {
                 if (response.ok) {
                     alert('Conta criada com sucesso');
+                    window.location.href = 'http://localhost:5173'
                 } else {
                     alert('Erro ao criar conta');
                 }

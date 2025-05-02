@@ -10,7 +10,6 @@ function Nav() {
         queryFn : async () => {
         const res = await fetch('http://localhost:3000')
         const result = await res.json()
-        console.log(result)
         if(result[0].user){
             setlogin(true)
         }

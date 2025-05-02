@@ -7,15 +7,16 @@ function LoginPage (){
     const onSubmit = async (e : any)=>{
         try{
             const dados = {email : e.email , senha : e.senha}
-            const res = await fetch('http://localhost:3000', {
+            const res = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dados),
             })
-            const data = await res.json()
-            console.log(data)
+                await res.json()
+                alert('Login realizado com sucesso')
+                window.location.href = 'http://localhost:5173'
         }catch{
             
         }

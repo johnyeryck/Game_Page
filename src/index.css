@@ -120,13 +120,11 @@
   }
 }
 
-
 .swiper-button-next,
 .swiper-button-prev {
-    color: #9333ea !important;
+  color: #9333ea !important;
 }
 
 .swiper-pagination-bullet-active {
-    background: #9333ea  !important;
+  background: #9333ea !important;
 }
-

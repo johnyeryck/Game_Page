@@ -19,6 +19,7 @@ function LoginPage() {
         body: JSON.stringify(dados),
       });
       const data = await res.json();
+      console.log(data)
       if (res.ok) {
         alert("Login realizado com sucesso");
         localStorage.setItem("isLoged", "true");
@@ -30,7 +31,7 @@ function LoginPage() {
     }
   };
   return (
-    <div className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
+    <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
       <h1 className="font-bold text-center   ">Login</h1>
       <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
@@ -72,22 +73,21 @@ function LoginPage() {
           </a>
         </div>
         <button
-          className=" bg-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700"
+          className=" border-2 border-purple-600  p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold"
           type="submit"
         >
           Iniciar Sessão
         </button>
         <div className="flex text-sm   font-bold mb-6 ">
-          <p className=" mt-4 mr-1">Não tem uma conta?</p>
-          <a
-            href="http://localhost:5173/createAccount"
-            className="text-blue-400  mt-4"
-          >
-            Criar Conta
-          </a>
+            <p className=" mt-4 mr-1">Não tem uma conta?</p>
+                 <a
+                   href="http://localhost:5173/createAccount"
+                  className="text-blue-400  mt-4"
+                 >Criar Conta
+                 </a>
         </div>
-      </form>
-    </div>
+     </form>
+    </main>
   );
 }
 export default LoginPage;

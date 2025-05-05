@@ -30,27 +30,35 @@ function CreateAccount() {
         window.location.href = "http://localhost:5173";
         localStorage.setItem("isLoged", "true");
       }
+      if (response.status === 400) {
+        alert("Email já cadastrado");
+      }
     });
   };
+  console.log(errors[0]?.type);
   return (
-    <div className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
-      <h1 className="font-bold text-center  mt-3 ">Crie sua Conta</h1>
-      <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
+    <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
+      <header>
+          <h1 className="font-bold text-center  mt-3 ">Crie sua Conta</h1>
+      </header>
+    <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
+      <fieldset>
         <div className="flex flex-col">
-          <label className="font-bold ml-2 opacity-75 size-9 ">Email</label>
-          <input
-            className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto "
-            type="email"
-            {...register("email", { required: true })}
-          />
-          {errors.email && (
-            <p className="text-red-400">Esse Campo é Obrigatório</p>
-          )}
+            <label className="font-bold ml-2 opacity-75 size-9 ">Email</label>
+            <input
+              className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto "
+              type="email"
+              {...register("email", { required: true })}
+              />
+              {errors.email && (
+                <p className="text-red-400 text-sm">Esse Campo é Obrigatório</p>
+              )}
         </div>
+     </fieldset> 
+      <fieldset>
+
         <div className="mt-5 relative">
-          <label className="font-bold ml-2  opacity-75 " htmlFor="senha">
-            Password
-          </label>
+          <label className="font-bold ml-2  opacity-75 " htmlFor="senha">Password</label>
           <input
             className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto ml-auto mt-2 "
             id="senha"
@@ -59,16 +67,12 @@ function CreateAccount() {
               minLength: 4,
             })}
             type={showPassword ? "text" : "password"}
-          />
-
-          {errors.senha && (
-            <p className="text-red-400">Esse Campo é Obrigatório</p>
-          )}
+            />
           <button
             type="button"
             onClick={() => setShow(!showPassword)}
-            className="bg-transparent right-19 bottom-1 absolute"
-          >
+            className="bg-transparent right-20 transition-all bottom-6 absolute cursor-pointer"
+            >
             {" "}
             {showPassword ? (
               <EyeOff size={20} color="gray" />
@@ -76,7 +80,12 @@ function CreateAccount() {
               <Eye size={20} />
             )}
           </button>
+
+          {errors.senha && (
+            <p className="text-red-400 text-sm">Esse Campo é Obrigatório</p>
+          )}
         </div>
+      </fieldset>
         <div className="mt-5 flex flex-col">
           <label className="font-bold ml-2  opacity-75">Username</label>
           <input
@@ -86,8 +95,9 @@ function CreateAccount() {
               minLength: 4,
             })}
           />
+          
           {errors.senha && (
-            <p className="text-red-400">Esse Campo é Obrigatório</p>
+            <p className="text-red-400 text-sm ">Esse Campo é Obrigatório</p>
           )}
         </div>
         <button
@@ -103,7 +113,7 @@ function CreateAccount() {
           </a>
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

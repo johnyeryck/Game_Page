@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Usuario from "../assets/logo/usuario.png";
 import Newlogo from "../assets/logo/WhatsApp Image 2025-04-16 at 23.08.41.jpeg";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+
 function Nav() {
   const isLoged = window.localStorage.getItem("isLoged");
   const [isVisible, setVisible] = useState<Boolean>(false);

@@ -19,7 +19,7 @@ function LoginPage() {
         body: JSON.stringify(dados),
       });
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       if (res.ok) {
         alert("Login realizado com sucesso");
         localStorage.setItem("isLoged", "true");
@@ -79,14 +79,15 @@ function LoginPage() {
           Iniciar Sessão
         </button>
         <div className="flex text-sm   font-bold mb-6 ">
-            <p className=" mt-4 mr-1">Não tem uma conta?</p>
-                 <a
-                   href="http://localhost:5173/createAccount"
-                  className="text-blue-400  mt-4"
-                 >Criar Conta
-                 </a>
+          <p className=" mt-4 mr-1">Não tem uma conta?</p>
+          <a
+            href="http://localhost:5173/createAccount"
+            className="text-blue-400  mt-4"
+          >
+            Criar Conta
+          </a>
         </div>
-     </form>
+      </form>
     </main>
   );
 }

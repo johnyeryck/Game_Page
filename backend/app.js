@@ -64,6 +64,13 @@ app.post("/login", async (req, res) => {
     }
   }
 });
+let datagames = []
+app.post('/datagames' , (req , res)=>{
+  datagames = req.body
+})
+app.get('/datagames' , (req , res)=>{
+    res.status(200).send(datagames)
+})
 app.get("/login", (req, res) => {
   res.status(200).send("Login bem-sucedido");
 });

@@ -19,7 +19,6 @@ function LoginPage() {
         body: JSON.stringify(dados),
       });
       const data = await res.json();
-      console.log(data);
       if (res.ok) {
         alert("Login realizado com sucesso");
         localStorage.setItem("isLoged", "true");

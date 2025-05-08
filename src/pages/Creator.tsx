@@ -1,16 +1,29 @@
 import Add from "../assets/logo/adicionar-simbolo.png";
 import { useForm } from "react-hook-form";
 import Options from "@/components/options";
+import { useState } from "react";
 function Creator() {
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
-  
+  const [Img , setImg] = useState<string | undefined>()
+
+  const onSubmit = async(e : any) => {
+    console.log(e)
+      const data = {GameName : e.name , Url : e.Url , descrição : e.Description ,genero : e.Genero , valor : e.Valor }
+      await fetch('http://localhost:3000/datagames', {
+        method : "POST",
+        headers : {
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(data)
+      })
+  };
   return (
     <main className="w-1/2 border border-purple-500 rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900">
-      <form className="flex-col flex mt-32 mb-32">
+      <form className="flex-col flex mt-32 mb-32" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col mb-4">
           <label className="text-white font-bold ml-44">Nome do Jogo</label>
           <input
@@ -26,19 +39,44 @@ function Creator() {
             type="text"
             className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
             {...register("Url", { required: true })}
+            onChange={(e)=>setImg(e.target.value)}
           ></input>
         </div>
-         
+
+        <div className="text-white flex flex-col">
+          <label className="text-white font-bold ml-44">Valor</label>
+          <input
+            className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
+            {...register("Valor", { required: true , valueAsNumber : true})}
+          ></input>
+        </div>
+
+
+        <div className="flex flex-col mb-4 mt-4">
+          <label className="text-white font-bold ml-44">Gênero</label>
+          <select
+            className="  rounded-sm bg-gray-800  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 text-white w-1/2 ml-auto mr-auto "
+            {...register("Genero", { required: true })}
+          >
+            <option>RPG</option>
+            <option>FPS</option>
+            <option>Ação</option>
+            <option>Esporte</option>
+            <option>Terror</option>
+          </select>
+        </div>
+            
           <label className="text-white font-bold text-center mt-4">
             Descrição
           </label>
         <div className="flex mt-4 justify-evenly">
-         <Options imageUrl="https://cdn1.epicgames.com/offer/7713e3fa4b234e0d8f553044205d53b6/EGS_TheLastofUsPartIIRemastered_NaughtyDogLLCNixxesSoftwareIronGalaxy_S2_1200x1600-2e13755a6b3fec2ee9dbcc231a1cf39c?resize=1&w=360&h=480&quality=medium" />
+         <Options imageUrl={Img} />
           <textarea
-            className="  rounded-sm bg-gray-800  border border-purple-400 placeholder:text-white placeholder:opacity-70 px-4 s text-white h-72 "
-            {...register("name", { required: true })}
+            className="  rounded-sm bg-gray-800  border border-purple-400 px-4 s text-white h-72  "
+            {...register("Description", { required: true })}
           />
         </div>
+        <button className="bg-purple-600 w-14 ml-auto" type="submit">Enviar</button>
       </form>
     </main>
   );

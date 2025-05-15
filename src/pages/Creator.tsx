@@ -1,4 +1,3 @@
-import Add from "../assets/logo/adicionar-simbolo.png";
 import { useForm } from "react-hook-form";
 import Options from "@/components/options";
 import { useState } from "react";
@@ -12,8 +11,9 @@ function Creator() {
 
   const onSubmit = async(e : any) => {
     console.log(e)
-      const data = {GameName : e.name , Url : e.Url , descrição : e.Description ,genero : e.Genero , valor : e.Valor }
-      await fetch('http://localhost:3000/datagames', {
+      const data = {GameName : e.name , Url : e.Url , descrição : e.Description ,genero : e.Genero , valor : e.Valor, lançamento : e.lancamento }
+      console.log(data)
+      await fetch('http://localhost:3000/games', {
         method : "POST",
         headers : {
           "Content-Type" : "application/json"
@@ -23,7 +23,8 @@ function Creator() {
   };
   return (
     <main className="w-1/2 border border-purple-500 rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900">
-      <form className="flex-col flex mt-32 mb-32" onSubmit={handleSubmit(onSubmit)}>
+      <form className="flex-col flex mt-32 mb-32 " onSubmit={handleSubmit(onSubmit)}>
+        {/*  */}
         <div className="flex flex-col mb-4">
           <label className="text-white font-bold ml-44">Nome do Jogo</label>
           <input
@@ -33,6 +34,8 @@ function Creator() {
           />
         </div>
 
+
+        {/*  */}
         <div className="text-white flex flex-col">
           <label className="text-white font-bold ml-44">Url Image</label>
           <input
@@ -43,15 +46,17 @@ function Creator() {
           ></input>
         </div>
 
+
+      {/*  */}
         <div className="text-white flex flex-col">
-          <label className="text-white font-bold ml-44">Valor</label>
+          <label className="text-white font-bold ml-44">Preço</label>
           <input
             className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
             {...register("Valor", { required: true , valueAsNumber : true})}
           ></input>
         </div>
 
-
+        {/*  */}
         <div className="flex flex-col mb-4 mt-4">
           <label className="text-white font-bold ml-44">Gênero</label>
           <select
@@ -65,7 +70,15 @@ function Creator() {
             <option>Terror</option>
           </select>
         </div>
-            
+
+        {/*  */}
+        <div className="flex flex-col">
+            <label htmlFor="" className="text-white ml-auto mr-auto font-bold" >Lançamento</label>
+            <input type="date" className=" rounded-sm bg-gray-800  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 text-white w-1/2 ml-auto mr-auto "  {...register("lancamento")}/>
+        </div>
+
+
+          {/* */}
           <label className="text-white font-bold text-center mt-4">
             Descrição
           </label>

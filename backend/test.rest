@@ -1,2 +1,2 @@
-GET https://localhost:3000
+GET https://localhost:3000/login
 Content-Type: application/json

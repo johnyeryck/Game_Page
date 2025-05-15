@@ -1,9 +1,13 @@
+import express, { Router } from "express";
 import dotenv from "dotenv";
-dotenv.config();
-import express from "express";
 import cors from "cors";
+import router from "./routes/cadastros.js";
+import LoginRouter from "./routes/loginRouter.js"
 import pool from "./db.js";
+dotenv.config();
+
 const app = express();
+
 app.use(express.json());
 // Configuração do CORS
 app.use(
@@ -14,64 +18,37 @@ app.use(
   }),
 );
 
-// Middleware para registrar os dados recebidos
-app.post("/cadastros", async (req, res) => {
-  const { email, senha, user } = req.body;
-  const verification = await pool.query(
-    "SELECT * FROM usuarios WHERE email = $1",
-    [email],
-  );
-  try {
-    if (verification.rows.length === 0) {
-      await pool.query(
-        "INSERT INTO usuarios (email,senhar,usuario) VALUES ($1,$2,$3) RETURNING *",
-        [email, senha, user],
-      );
-    } else {
-      return res.status(400).json({
-        message: "Email já cadastrado",
-      });
-    }
-  } catch (err) {
-    return res.status(500).json({
-      message: "Erro ao salvar no banco de dados",
-      error: err.message,
-      stack: err.stack,
-    });
-  }
 
-  res.status(200).json({
-    message: "Dados recebidos com sucesso",
-  });
-});
-app.get("/cadastros", (req, res) => {
-  res.status(200).send("Dados recebidos com sucesso");
-});
-
-app.post("/login", async (req, res) => {
-  const { email, senha } = req.body;
-  if (req.method === "POST") {
-    const result = await pool.query(
-      "SELECT * FROM usuarios WHERE email = $1 AND senhar = $2",
-      [email, senha],
-    );
-    if (result.rows.length > 0) {
-      res.status(200).json({
-        message: "Login bem-sucedido",
-
-        data: result.rows[0].usuario,
-      });
-    }
-  }
-});
-let datagames = []
-app.post('/datagames' , (req , res)=>{
-  datagames = req.body
+app.get("/", (req, res)=>{
+  res.status(200).send('hewllo')
 })
-app.get('/datagames' , (req , res)=>{
-    res.status(200).send(datagames)
+
+// 
+app.use("/cadastros" , router)
+app.get("/cadastros" , (req , res)=>{
+   res.status(200).send("Cadastros de usuarios")
 })
-app.get("/login", (req, res) => {
-  res.status(200).send("Login bem-sucedido");
-});
+// 
+app.use("/login" , LoginRouter)
+app.get("/login" , (req , res)=>{
+  res.status(200).send("Login System")
+})
+//
+let data = []
+app.post("/games" , async(req , res)=>{
+  const {descrição , GameName ,Url ,genero , valor , lançamento} = req.body;
+  data = req.body
+  console.log(data)
+  await pool.query("INSERT INTO jogos (titulo,descricao,imagem_url,categoria,criado_em) VALUES ($1,$2,$3,$4,$5)" ,
+    [GameName ,descrição , Url , genero , lançamento] 
+  )
+
+})
+app.get("/games" , (req, res)=>{
+  res.status(200).json(data)
+})
+
+
+
+
 export default app;

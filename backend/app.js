@@ -38,16 +38,20 @@ let data = []
 app.post("/games" , async(req , res)=>{
   const {descrição , GameName ,Url ,genero , valor , lançamento} = req.body;
   data = req.body
-  console.log(data)
-  await pool.query("INSERT INTO jogos (titulo,descricao,imagem_url,categoria,criado_em) VALUES ($1,$2,$3,$4,$5)" ,
-    [GameName ,descrição , Url , genero , lançamento] 
+  await pool.query("INSERT INTO jogos (titulo,descricao,imagem_url,categoria,criado_em,preco) VALUES ($1,$2,$3,$4,$5,$6)" ,
+    [GameName ,descrição , Url , genero , lançamento,valor] 
   )
 
 })
-app.get("/games" , (req, res)=>{
-  res.status(200).json(data)
-})
 
+app.get("/games" ,async (req, res)=>{
+  console.log(req.method)
+  if(req.method == "GET"){
+    const response = await pool.query("SELECT * FROM jogos WHERE categoria = $1",["Ação"]
+    )
+    res.status(200).json(response.rows)
+  }
+})
 
 
 

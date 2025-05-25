@@ -10,9 +10,7 @@ function Creator() {
   const [Img , setImg] = useState<string | undefined>()
 
   const onSubmit = async(e : any) => {
-    console.log(e)
       const data = {GameName : e.name , Url : e.Url , descrição : e.Description ,genero : e.Genero , valor : e.Valor, lançamento : e.lancamento }
-      console.log(data)
       await fetch('http://localhost:3000/games', {
         method : "POST",
         headers : {
@@ -52,7 +50,7 @@ function Creator() {
           <label className="text-white font-bold ml-44">Preço</label>
           <input
             className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
-            {...register("Valor", { required: true , valueAsNumber : true})}
+            {...register("Valor", { required: true })}
           ></input>
         </div>
 

@@ -1,12 +1,34 @@
+import { useQuery } from "@tanstack/react-query"
 import Options from "./options"
+import DataGames from "@/interfaces"
 function Layout (){
+    const { data} = useQuery<DataGames[] | undefined>({
+    queryKey: ['games'],
+    queryFn: async () => {
+      const response = await fetch('http://localhost:3000/games', {
+        method : "GET"
+      })
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      
+      return response.json()
+    }
+  })
+  console.log(data)
     return (
-        <section className="flex justify-evenly w-3/4 ml-auto mr-auto">
-              <Options  imageUrl="https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2023/12/04/gta6-capa-1h7gcqluigx9e.png" />
-              <Options  imageUrl="https://www.tramamos.com.br/wp-content/uploads/2019/03/0fd6ee60c80933f4724807a45f641f06.jpg"  />
-              <Options  imageUrl="https://cdn1.epicgames.com/offer/0c40923dd1174a768f732a3b013dcff2/EGS_TheLastofUsPartI_NaughtyDogLLC_S2_1200x1600-41d1b88814bea2ee8cb7986ec24713e0" />
-              <Options  imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNG09cBq9g0NUNOeiUuEjKi_5QNoFNsdxXMg&s" />
-              
+        <section className="flex justify-evenly ml-auto mr-auto w-[80%]">
+              {
+                data && (
+                  data.map((game)=>(
+                    <div className="ml-3">
+                        <Options  imageUrl={game.imagem_url}  />
+                        <p className="text-white font-bold mt-6 ml-2 " >{game.titulo}</p>
+                        <p className="text-white text-left font-bold ml-3">{game.preco}</p>
+                    </div>
+
+                  ))
+                )}
               
             </section> 
     )

@@ -17,20 +17,24 @@ function Layout (){
   })
   console.log(data)
     return (
-        <section className="flex justify-evenly ml-auto mr-auto w-[80%]">
-              {
+        <main className="ml-auto mr-auto w-[85%] ">
+          <h5 className="text-white pl-4 mb-6 font-extrabold">Jogos De Tirar O fôlego</h5>
+              
+             <section className="flex justify-evenly">
+              {  
                 data && (
                   data.map((game)=>(
-                    <div className="ml-3">
+                    <div className="ml-3 ">
                         <Options  imageUrl={game.imagem_url}  />
                         <p className="text-white font-bold mt-6 ml-2 " >{game.titulo}</p>
-                        <p className="text-white text-left font-bold ml-3">{game.preco}</p>
+                        <p className="text-white text-left font-bold ml-3 " >{game.preco}</p>
                     </div>
 
                   ))
-                )}
+              )}
+            </section>
               
-            </section> 
+            </main> 
     )
 
 }

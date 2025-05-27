@@ -6,7 +6,7 @@ function App() {
   
   return (
     <>
-      <Nav />
+      <Nav StyleNav="w-full bg-black h-20 flex z-10 top-0 fixed"/>
       <Main />
       <Layout />
     </>

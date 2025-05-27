@@ -25,14 +25,14 @@ const gamesApi = [
     nome: "Elden Ring",
     descricao:
       "Elden Ring, desenvolvido pela FromSoftware, oferece um vasto mundo aberto, misturando a exploração de ambientes abertos com a difícil mecânica de combate de seus predecessores.",
-    img: "https://c4.wallpaperflare.com/wallpaper/1/398/339/elden-ring-landscape-game-art-video-game-art-video-games-hd-wallpaper-preview.jpg",
+    img: "https://preview.redd.it/rzd93vlpxn471.jpg?auto=webp&s=0a501ff20d9680fc677903e298ac8a190ecb1968",
   },
   {
     preço: 46.99,
     nome: "Hollow Knight",
     descricao:
       "Hollow Knight é um jogo de ação e aventura estilo metroidvania, onde você explora um vasto mundo subterrâneo cheio de mistérios e inimigos desafiadores.",
-    img: "https://c4.wallpaperflare.com/wallpaper/218/73/196/video-game-hollow-knight-hd-wallpaper-preview.jpg",
+    img: "https://img.uhdpaper.com/image-4/a/thumbnail/hollow-knight-background-4k--28.4_a.jpg",
   },
   {
     preço: 249.9,
@@ -46,14 +46,14 @@ const gamesApi = [
     nome: "Ghost of Tsushima",
     descricao:
       "Ghost of Tsushima é um jogo de ação e aventura no Japão feudal, onde você interpreta Jin Sakai, um samurai em busca de proteger sua terra contra invasores mongóis.",
-    img: "https://c4.wallpaperflare.com/wallpaper/139/265/83/video-game-ghost-of-tsushima-hd-wallpaper-preview.jpg",
+    img: "https://images3.alphacoders.com/138/1387219.jpg",
   },
   {
     preço: 74.99,
     nome: "Red Dead Redemption 2",
     descricao:
       "Red Dead Redemption 2 é um épico de ação e aventura ambientado no final do século 19, onde você vive como Arthur Morgan, um fora da lei em busca de sobrevivência e redenção.",
-    img: "https://c4.wallpaperflare.com/wallpaper/740/918/401/digital-art-artwork-red-dead-redemption-red-dead-redemption-2-arthur-morgan-hd-wallpaper-preview.jpg",
+    img : "https://i.ytimg.com/vi/Fv8Gu7fHw1E/maxresdefault.jpg",
   },
 ];
 export default gamesApi;

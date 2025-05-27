@@ -1,11 +1,17 @@
 import { SwiperSlide, Swiper } from "swiper/react";
+import gamesApi from "../listimg";
+
 import {
   Autoplay,
   EffectCoverflow,
   Navigation,
   Pagination,
 } from "swiper/modules";
-import gamesApi from "../listimg";
+
+
+
+
+
 function Main() {
   return (
     <main className="mb-52">
@@ -39,8 +45,8 @@ function Main() {
                   src={img.img}
                   className="  rounded-xl ml-auto mr-auto  size-full "
                 ></img>
-                <div className="bg-linear-to-r from-black to-transparent rounded-xl  absolute top-0 h-full ">
-                  <p className="text-white   leading-6 font-bold   w-sm  ml-7 mb-20 mt-72">
+                <div className="bg-gradient-to-r w-3/4  from-black to-transparent rounded-xl  absolute top-0 h-full ">
+                  <p className="text-white  leading-6 font-bold   w-sm  ml-7 mb-20 mt-72">
                     {img.descricao}
                   </p>
                   <div className="absolute bottom-4 ">

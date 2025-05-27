@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Options from "@/components/options";
 import { useState } from "react";
+import Nav from "@/components/Nav";
 function Creator() {
   const {
     handleSubmit,
@@ -21,6 +22,7 @@ function Creator() {
   };
   return (
     <main className="w-1/2 border border-purple-500 rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900">
+      <Nav StyleNav="w-full bg-black h-20 flex z-10 top-0 fixed "/>
       <form className="flex-col flex mt-32 mb-32 " onSubmit={handleSubmit(onSubmit)}>
         {/*  */}
         <div className="flex flex-col mb-4">

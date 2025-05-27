@@ -6,6 +6,7 @@ import LoginRouter from "./routes/loginRouter.js"
 import pool from "./db.js";
 dotenv.config();
 
+
 const app = express();
 
 app.use(express.json());

@@ -4,17 +4,21 @@ import Usuario from "../assets/logo/usuario.png";
 import Newlogo from "../assets/logo/WhatsApp Image 2025-04-16 at 23.08.41.jpeg";
 import { useState } from "react";
 
-function Nav({StyleNav} : {StyleNav : string | undefined}) {
+function Nav() {
   const isLoged = window.localStorage.getItem("isLoged");
   const [isVisible, setVisible] = useState<Boolean>(false);
   const user = window.localStorage.getItem("user");
 
 
   return (
-    <nav className={StyleNav}>
+    <nav className="w-full bg-black h-20 flex z-10 top-0 fixed">
       <Link to="/" className="flex cursor-pointer">
         <img className="w-36 h-12 mt-6 ml-5" src={Newlogo} alt="Gamers Logo" />
       </Link>
+
+
+
+
 
       <Link to="/cart" className="size-8 ml-auto mt-11 mr-3 cursor-pointer ">
         <img src={Carrinho} alt="Shopping Cart" />

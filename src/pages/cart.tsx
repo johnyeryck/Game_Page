@@ -1,5 +1,14 @@
+import Nav from "@/components/Nav";
+
 function Cart() {
-  return <div className="bg-white"></div>;
+  return (
+      
+    <div>
+      <Nav/>
+    </div>
+      
+    
+  )
 }
 
 export default Cart;

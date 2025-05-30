@@ -48,7 +48,7 @@ app.post("/games" , async(req , res)=>{
 app.get("/games" ,async (req, res)=>{
   console.log(req.method)
   if(req.method == "GET"){
-    const response = await pool.query("SELECT * FROM jogos WHERE categoria = $1",["Ação"]
+    const response = await pool.query("SELECT * FROM jogos"
     )
     res.status(200).json(response.rows)
   }

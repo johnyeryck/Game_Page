@@ -21,8 +21,8 @@ function Creator() {
       })
   };
   return (
-    <main className="w-1/2 border border-purple-500 rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900">
-      <Nav StyleNav="w-full bg-black h-20 flex z-10 top-0 fixed "/>
+    <main className="  rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900 ">
+      <Nav />
       <form className="flex-col flex mt-32 mb-32 " onSubmit={handleSubmit(onSubmit)}>
         {/*  */}
         <div className="flex flex-col mb-4">
@@ -68,6 +68,8 @@ function Creator() {
             <option>Ação</option>
             <option>Esporte</option>
             <option>Terror</option>
+            <option>Corrida</option>
+
           </select>
         </div>
 
@@ -78,18 +80,17 @@ function Creator() {
         </div>
 
 
-          {/* */}
           <label className="text-white font-bold text-center mt-4">
             Descrição
           </label>
         <div className="flex mt-4 justify-evenly">
          <Options imageUrl={Img} />
           <textarea
-            className="  rounded-sm bg-gray-800  border border-purple-400 px-4 s text-white h-72  "
+            className="  rounded-sm bg-gray-800  border border-purple-400 px-4  text-white h-72  "
             {...register("Description", { required: true })}
           />
         </div>
-        <button className="bg-purple-600 w-14 ml-auto" type="submit">Enviar</button>
+        <button className="bg-purple-600 w-32  ml-auto rounded-xl mr-auto" type="submit">Enviar</button>
       </form>
     </main>
   );

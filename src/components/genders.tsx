@@ -7,7 +7,7 @@ const Genders = ()=>{
 
     const list = {
 
-        Jogos_Gratis : "https://store.cloudflare.steamstatic.com/categories/homepageimage/freetoplay?cc=us&l=portuguese",
+        Gratis : "https://store.cloudflare.steamstatic.com/categories/homepageimage/freetoplay?cc=us&l=portuguese",
         Terror : "https://store.cloudflare.steamstatic.com/categories/homepageimage/category/horror?cc=us&l=portuguese",
         Mundo_Aberto : "https://store.cloudflare.steamstatic.com/categories/homepageimage/category/exploration_open_world?cc=us&l=portuguese",
         Anime: "https://store.cloudflare.steamstatic.com/categories/homepageimage/category/anime?cc=us&l=portuguese",
@@ -20,7 +20,7 @@ const Genders = ()=>{
 
 
     return(
-        <section className="flex  mt-20  ml-auto mr-auto  w-[80%]  justify-evenly">
+        <section className="flex  mt-60  ml-auto mr-auto  w-[80%]  justify-evenly ">
             <Swiper slidesPerView={4}
             // navigation
             autoplay={true}
@@ -31,11 +31,11 @@ const Genders = ()=>{
             {Object.entries(list).map(([key,v])=>(
                 <SwiperSlide className="">
                         
-                   <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800" >
+                   <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer" >
                         <img src={v} className="" />
-                        <div className="absolute  bg-gradient-to-t from-purple-400 to-transparent 
+                        <div className="absolute  bg-gradient-to-t from-purple-700 to-transparent 
                         w-56 bottom-0.5 rounded-lg h-full ">
-                        <h1 className="text-white font-bold text-center ">{key}</h1>
+                        <h1 className="text-white font-bold text-center mt-25">{key}</h1>
                         </div>
                     </div> 
                 </SwiperSlide>

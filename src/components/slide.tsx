@@ -50,7 +50,7 @@ function Main() {
                     {img.descricao}
                   </p>
                   <div className="absolute bottom-4 ">
-                    <p className="text-white   mb-3.5 font-bold   w-1/4 ml-7 ">
+                    <p className="text-green-500   mb-3.5 font-bold   w-1/4 ml-7 ">
                       R${img.preço}
                     </p>
                     <button className=" font-bold  cursor-pointer    ml-6 bg-white px-6 py-2 rounded-2xl hover:bg-purple-600 hover:text-white transition-colors duration-300 ">

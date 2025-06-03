@@ -2,11 +2,12 @@ import Carrinho from "../assets/logo/carrinho-de-compras.png";
 import { FunctionComponent } from "react";
 interface CartInterface{
   imageUrl : string | undefined,
-  gameID? : number 
+  gameName? : string | undefined,
 }
-const  Options : FunctionComponent<CartInterface>=({imageUrl , gameID})=> {
+const  Options : FunctionComponent<CartInterface>=({imageUrl , gameName})=> {
       const CartFunction = ()=>{
         alert("adicionado ao carinho")
+        localStorage.setItem("idgame" , JSON.stringify(gameName))
       }
       return(
           <div className="h-60  w-48 transform transition-all hover:scale-110 rounded-xl  ">

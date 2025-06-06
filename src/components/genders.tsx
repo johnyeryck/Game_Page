@@ -20,7 +20,7 @@ const Genders = ()=>{
 
 
     return(
-        <section className="flex  mt-60  ml-auto mr-auto  w-[80%]  justify-evenly ">
+        <section className="flex  mt-60  ml-auto mr-auto  w-[76%]">
             <Swiper slidesPerView={4}
             // navigation
             autoplay={true}
@@ -33,10 +33,10 @@ const Genders = ()=>{
                         
                    <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer"  >
                         <img src={v} className="" />
-                        <div className="absolute  bg-gradient-to-t from-purple-700 to-transparent 
-                        w-56 bottom-0.5 rounded-lg h-full ">
-                        <h1 className="text-white font-bold text-center mt-25">{key}</h1>
-                        </div>
+                            <div className="absolute shadow-amber-300 shadow-2xl bg-gradient-to-t from-black to-transparent 
+                            w-55 bottom-0.5 rounded-lg h-full ">
+                                <h1 className="text-white font-bold text-center mt-25">{key}</h1>
+                            </div>
                     </div> 
                 </SwiperSlide>
             ))}

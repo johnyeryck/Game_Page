@@ -5,7 +5,7 @@ import Options from "./options"
 function Rpg (){
     const data = useContext(MyContext)
     return(
-    <main className=" mt-60">
+    <main className=" mt-60 mb-20">
         <h5 className="text-white font-extrabold ml-40 ">Historias Incríveis para se aventurar</h5>
         <section className="flex w-[76%] ml-auto mr-auto justify-evenly">
 

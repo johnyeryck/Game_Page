@@ -31,7 +31,7 @@ const Genders = ()=>{
             {Object.entries(list).map(([key,v])=>(
                 <SwiperSlide className="">
                         
-                   <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer" >
+                   <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer"  >
                         <img src={v} className="" />
                         <div className="absolute  bg-gradient-to-t from-purple-700 to-transparent 
                         w-56 bottom-0.5 rounded-lg h-full ">

@@ -1,6 +1,5 @@
 import Carrinho from "../assets/logo/carrinho-de-compras.png";
 import { FunctionComponent } from "react";
-import {openDB} from 'idb'
 import { dbPromise } from "@/indexDb";
 interface CartInterface{
   imageUrl : string | undefined,

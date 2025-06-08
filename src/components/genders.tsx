@@ -31,11 +31,11 @@ const Genders = ()=>{
             {Object.entries(list).map(([key,v])=>(
                 <SwiperSlide className="">
                         
-                   <div className="border-2 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer"  >
+                   <div className="border-3 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer"  >
                         <img src={v} className="" />
-                            <div className="absolute shadow-amber-300 shadow-2xl bg-gradient-to-t from-black to-transparent 
-                            w-55 bottom-0.5 rounded-lg h-full ">
-                                <h1 className="text-white font-bold text-center mt-25">{key}</h1>
+                            <div className="absolute shadow-blue-600  shadow-lg bg-gradient-to-t from-black to-transparent 
+                            w-55 bottom-0.5 rounded-lg h-1/2">
+                                <h1 className="text-white font-bold text-center">{key}</h1>
                             </div>
                     </div> 
                 </SwiperSlide>

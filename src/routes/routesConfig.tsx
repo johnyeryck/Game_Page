@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/creator",
-    element: <Creator/>,
+    element: <Creator />,
   },
   {
     path: "/createAccount",
@@ -33,4 +33,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router
+export default router;

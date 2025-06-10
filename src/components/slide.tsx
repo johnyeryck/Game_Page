@@ -8,10 +8,6 @@ import {
   Pagination,
 } from "swiper/modules";
 
-
-
-
-
 function Main() {
   return (
     <main className="mb-52">

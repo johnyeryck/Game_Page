@@ -1,6 +1,6 @@
 import DataGames from "@/interfaces";
-import { createContext  } from "react";
-type GamesContextType  = DataGames[] | undefined;
-const MyContext = createContext<GamesContextType>(undefined)
+import { createContext } from "react";
+type GamesContextType = DataGames[] | undefined;
+const MyContext = createContext<GamesContextType>(undefined);
 
-export default MyContext
+export default MyContext;

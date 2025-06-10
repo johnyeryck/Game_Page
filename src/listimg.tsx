@@ -53,7 +53,7 @@ const gamesApi = [
     nome: "Red Dead Redemption 2",
     descricao:
       "Red Dead Redemption 2 é um épico de ação e aventura ambientado no final do século 19, onde você vive como Arthur Morgan, um fora da lei em busca de sobrevivência e redenção.",
-    img : "https://i.ytimg.com/vi/Fv8Gu7fHw1E/maxresdefault.jpg",
+    img: "https://i.ytimg.com/vi/Fv8Gu7fHw1E/maxresdefault.jpg",
   },
 ];
 export default gamesApi;

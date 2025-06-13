@@ -22,7 +22,7 @@ function Rpg() {
             ? data.map((game) =>
                 game.categoria === "RPG" ? (
                   <SwiperSlide>
-                    <div className="ml-3  mt-10 ">
+                    <div className="ml-3  mt-10 cursor-pointer">
                       <Options
                         imageUrl={game.imagem_url}
                         game={game.titulo}

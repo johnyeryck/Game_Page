@@ -26,6 +26,7 @@ function Creator() {
       },
       body: JSON.stringify(data),
     });
+    window.location.reload();
   };
   return (
     <main className="  rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900 ">

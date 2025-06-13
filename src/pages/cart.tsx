@@ -38,7 +38,8 @@ function Cart() {
     <header>
       <Nav />
       <main className="mt-40 mb-20 ">
-        {isLoged != "true" ? <LoginPage /> : null}
+        {
+        isLoged != "true" ? (<LoginPage />) : null}
 
         {data && jogo && isLoged === "true"
           ? data.map((game) =>
@@ -70,7 +71,7 @@ function Cart() {
             )
           : null}
 
-        {jogo && jogo?.length < 1 ? (
+        {isLoged === "true" && jogo && jogo?.length < 1 ? (
           <div
             className="border w-1/3 border-purple-600 ml-auto mr-auto
           h-60 rounded-lg "

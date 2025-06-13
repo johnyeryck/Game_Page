@@ -5,7 +5,6 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 function Layout() {
   const data = useContext(MyContext);
-
   return (
     <main className="ml-auto mr-auto w-[76%] ">
       <h5 className="text-white pl-4 mb-6 font-extrabold">
@@ -23,7 +22,7 @@ function Layout() {
             ? data.map((game) =>
                 game.categoria === "Ação" ? (
                   <SwiperSlide>
-                    <div className="ml-3  mt-10 ">
+                    <div className="ml-3  mt-10 cursor-pointer">
                       <Options
                         imageUrl={game.imagem_url}
                         game={game.titulo}

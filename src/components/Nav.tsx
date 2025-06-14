@@ -8,7 +8,7 @@ function Nav() {
   const isLoged = window.localStorage.getItem("isLoged");
   const [isVisible, setVisible] = useState<Boolean>(false);
   const user = window.localStorage.getItem("user");
-  console.log(isLoged);
+  
   return (
     <header className="w-full bg-black h-20 flex  z-10 top-0 fixed">
       <nav className="flex">

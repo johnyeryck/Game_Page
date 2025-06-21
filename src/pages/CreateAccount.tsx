@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import Nav from "@/components/Nav";
 uuidv4();
 function CreateAccount() {
   const [showPassword, setShow] = useState<boolean>(false);
@@ -25,19 +26,19 @@ function CreateAccount() {
       },
       body: JSON.stringify(dados),
     }).then((response) => {
-      if (response.ok) {
-        alert("Conta criada com sucesso");
-        window.location.href = "http://localhost:5173";
-        localStorage.setItem("isLoged", "true");
+      if (response.status === 200) {
+          alert("email de confirmação enviado")
       }
       if (response.status === 400) {
-        alert("Email já cadastrado");
+        alert("Erro ao criar conta");
       }
     });
   };
-  console.log(errors[0]?.type);
   return (
-    <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
+    <header>
+      <Nav />
+
+    <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32  ">
       <header>
         <h1 className="font-bold text-center  mt-3 ">Crie sua Conta</h1>
       </header>
@@ -49,7 +50,7 @@ function CreateAccount() {
               className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto "
               type="email"
               {...register("email", { required: true })}
-            />
+              />
             {errors.email && (
               <p className="text-red-400 text-sm">Esse Campo é Obrigatório</p>
             )}
@@ -68,12 +69,12 @@ function CreateAccount() {
                 minLength: 4,
               })}
               type={showPassword ? "text" : "password"}
-            />
+              />
             <button
               type="button"
               onClick={() => setShow(!showPassword)}
               className="bg-transparent right-20 transition-all bottom-6 absolute cursor-pointer"
-            >
+              >
               {" "}
               {showPassword ? (
                 <EyeOff size={20} color="gray" />
@@ -83,7 +84,7 @@ function CreateAccount() {
             </button>
 
             {errors.senha && (
-              <p className="text-red-400 text-sm">Esse Campo é Obrigatório</p>
+              <p className="text-red-400 text-sm" >Esse Campo é Obrigatório</p>
             )}
           </div>
         </fieldset>
@@ -95,7 +96,7 @@ function CreateAccount() {
               required: { value: true, message: "Esse campo é obrigat" },
               minLength: 4,
             })}
-          />
+            />
 
           {errors.senha && (
             <p className="text-red-400 text-sm ">Esse Campo é Obrigatório</p>
@@ -104,7 +105,7 @@ function CreateAccount() {
         <button
           className=" border-2 border-purple-600 p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold "
           type="submit"
-        >
+          >
           Criar Conta
         </button>
         <div className="flex mt-6  px-3 font-bold mb-6">
@@ -115,6 +116,7 @@ function CreateAccount() {
         </div>
       </form>
     </main>
+  </header>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
+import Nav from "@/components/Nav";
 function LoginPage() {
   const [showPass, setvalue] = useState<boolean>(false);
   const {
@@ -30,6 +31,8 @@ function LoginPage() {
     }
   };
   return (
+    <header>
+      <Nav />
     <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32">
       <h1 className="font-bold text-center   ">Login</h1>
       <form className="mt-10 ml-14 " onSubmit={handleSubmit(onSubmit)}>
@@ -39,7 +42,7 @@ function LoginPage() {
             className="bg-gray-600 rounded-sm px-3 w-3/4 mr-auto "
             type="email"
             {...register("email", { required: true })}
-          />
+            />
           {errors.email && (
             <p className="text-red-400">Esse Campo é Obrigatório</p>
           )}
@@ -53,7 +56,7 @@ function LoginPage() {
               required: { value: true, message: "Esse campo é obrigat" },
               minLength: 4,
             })}
-          />
+            />
           {errors.senha && (
             <p className="text-red-400 text-sm mt-2">
               *Esse Campo é Obrigatório
@@ -63,7 +66,7 @@ function LoginPage() {
             type="button"
             onClick={() => setvalue(!showPass)}
             className="bg-transparent right-20 transition-all bottom-6 absolute cursor-pointer"
-          >
+            >
             {" "}
             {showPass ? <EyeOff size={20} color="white" /> : <Eye size={20} />}
           </button>
@@ -74,7 +77,7 @@ function LoginPage() {
         <button
           className=" border-2 border-purple-600  p-2 rounded-xl mt-3 w-3/4 cursor-pointer hover:bg-purple-700 font-bold"
           type="submit"
-        >
+          >
           Iniciar Sessão
         </button>
         <div className="flex text-sm   font-bold mb-6 ">
@@ -82,12 +85,14 @@ function LoginPage() {
           <a
             href="http://localhost:5173/createAccount"
             className="text-blue-400  mt-4"
-          >
+            >
             Criar Conta
           </a>
         </div>
       </form>
     </main>
+  </header>
   );
 }
+
 export default LoginPage;

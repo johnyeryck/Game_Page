@@ -2,7 +2,13 @@ import pool from "../db.js";
 import nodemailer from 'nodemailer'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
+import fs from "fs"
+import path from "path";
+import { url } from "inspector";
 dotenv.config()
+
+
+
 
 
 const transporte = nodemailer.createTransport(
@@ -26,15 +32,17 @@ const createUser = async (req, res) => {
   
   
   if(verification.rows.length === 0 ){
-        const token = jwt.sign({email, senha , user} , 'segredo' , {expiresIn : '40min'});
+        const token = jwt.sign({email, senha , user} , process.env.KEY_TOKEN , {expiresIn : '40min'});
         const url = `http://localhost:5173/confirmar?token=${token}`
             
             const emaildata = {
               from: 'johnyeryckdev@gmail.com',
               to : email,
               subject: 'Confirme seu email',
-              html: `Para continuar a criação de sua conta no GamesHUB Clique no link para confirmar seu e-mail: 
-              <button style="background-color: blueviolet;"><a href="${url}" style="text-decoration : none; color : white">Confirmar</a></button>`
+              html: `<div style="background-color: black; height : 360px">
+                     <h1 style="color: white">Para continuar a criação de sua conta no GamesHUB Clique no link para confirmar seu e-mail: </h1>
+                    <button style="background-color: blueviolet;"><a href="${url}" style="text-decoration : none; color : white">Confirmar</a></button>
+                    </div>`
               
             }
             

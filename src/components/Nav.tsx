@@ -1,7 +1,7 @@
 import Carrinho from "../assets/logo/carrinho-de-compras.png";
 import { Link } from "react-router-dom";
 import Usuario from "../assets/logo/usuario.png";
-import Newlogo from "../assets/logo/WhatsApp Image 2025-04-16 at 23.08.41.jpeg";
+import Newlogo from "../assets/logo/gamersHUB.jpeg";
 import { useState } from "react";
 
 function Nav() {

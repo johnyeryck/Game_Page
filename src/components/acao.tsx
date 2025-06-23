@@ -1,6 +1,8 @@
 import Options from "./options";
 import MyContext from "@/context/gamesContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import slugify from "slugify";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 function Layout() {
@@ -22,12 +24,13 @@ function Layout() {
             ? data.map((game) =>
                 game.categoria === "Ação" ? (
                   <SwiperSlide>
+                    <Link to={`/app/${slugify(game.titulo)}`}>
                     <div className="ml-3  mt-10 cursor-pointer">
                       <Options
                         imageUrl={game.imagem_url}
                         game={game.titulo}
                         gameid={game.id}
-                      />
+                        />
                       <div className=" h-16 ">
                         <p className="text-white font-bold mt-2 ml-2 ">
                           {game.titulo}
@@ -37,6 +40,7 @@ function Layout() {
                         {game.preco}
                       </p>
                     </div>
+                    </Link>
                   </SwiperSlide>
                 ) : null,
               )

@@ -1,5 +1,5 @@
 import App from "@/App";
-import ConfirmEmail from "@/pages/confirmEmail";
+import BuyPage from "@/pages/buyPage";
 import CreateAccount from "@/pages/CreateAccount";
 import Creator from "@/pages/Creator";
 import LoginPage from "@/pages/login";
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
           <Confirm />,
       </Suspense>
     )
+  },
+  {
+    path : "/app/:slug",
+    element : <BuyPage />
   },
 ]);
 

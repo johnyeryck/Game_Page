@@ -9,7 +9,6 @@ import jwt from "jsonwebtoken";
 dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 // Configuração do CORS
 app.use(
@@ -40,7 +39,7 @@ app.post("/confirmar", async (req, res) => {
   console.log(req.query);
   const { token } = req.query;
   try {
-    const decode = jwt.decode(token, "segredo");
+    const decode = jwt.decode(token, process.env.KEY_TOKEN);
     const { email, senha, user } = decode;
     await pool.query(
       "INSERT INTO usuarios (email,senhar,usuario) VALUES ($1,$2,$3) RETURNING *",

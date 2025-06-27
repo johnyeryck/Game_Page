@@ -14,7 +14,6 @@ const Options: FunctionComponent<CartInterface> = ({
   gameid,
 }) => {
   const CartFunction = async () => {
-    alert("adicionado ao carinho");
     const db = await dbPromise;
     await db.put("jogos", {
       id: gameid,
@@ -23,10 +22,10 @@ const Options: FunctionComponent<CartInterface> = ({
   };
 
   return (
-    <div className="h-60  w-48 transform transition-all hover:scale-110 rounded-xl  ">
+    <div className="h-60  w-48 transform transition-all hover:scale-110 rounded-xl border-purple-600 ">
       <img className=" rounded-2xl size-full" src={imageUrl} />
       <button
-        className="absolute bottom-4 right-4 bg-white p-2 rounded-full size-8 cursor-pointer "
+        className="absolute bottom-4 right-4 bg-white p-2 rounded-full size-8 cursor-pointer border border-purple-600"
         hidden={isInvisible}
         onClick={() => CartFunction()}
       >

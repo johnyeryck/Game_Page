@@ -6,6 +6,7 @@ import LoginRouter from "./routes/loginRouter.js";
 import Verification from "./routes/verifyEmailrouter.js";
 import pool from "./db.js";
 import jwt from "jsonwebtoken";
+import routerEmail from "./routes/verifyEmailrouter.js";
 dotenv.config();
 
 const app = express();
@@ -34,22 +35,7 @@ app.get("/login", (req, res) => {
   res.status(200).send("Login System");
 });
 //
-app.post("/confirmar", async (req, res) => {
-  console.log(req.method);
-  console.log(req.query);
-  const { token } = req.query;
-  try {
-    const decode = jwt.decode(token, process.env.KEY_TOKEN);
-    const { email, senha, user } = decode;
-    await pool.query(
-      "INSERT INTO usuarios (email,senhar,usuario) VALUES ($1,$2,$3) RETURNING *",
-      [email, senha, user],
-    );
-    res.status(200).send("Usuario cadastrado")
-  } catch{
-    
-  }
-});
+app.use("/confirmar", routerEmail)
 app.get("/confirmar", (req, res) => {
   res.status(200).send("teste");
 });
@@ -66,10 +52,8 @@ app.post("/games", async (req, res) => {
 });
 
 app.get("/games", async (req, res) => {
-  if (req.method == "GET") {
     const response = await pool.query("SELECT * FROM jogos");
     res.status(200).json(response.rows);
-  }
 });
 
 export default app;

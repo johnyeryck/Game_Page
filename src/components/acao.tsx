@@ -18,14 +18,14 @@ function Layout() {
           slidesPerView={5}
           navigation
           modules={[Navigation]}
-          className="myStyle"
+          className="myStyle "
         >
           {data && data.length > 0
             ? data.map((game) =>
                 game.categoria === "Ação" ? (
                   <SwiperSlide>
                     <Link to={`/app/${slugify(game.titulo)}`}>
-                    <div className="ml-3  mt-10 cursor-pointer">
+                    <div className="ml-3  mt-10 cursor-pointer ">
                       <Options
                         imageUrl={game.imagem_url}
                         game={game.titulo}

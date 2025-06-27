@@ -18,6 +18,8 @@ function Creator() {
       genero: e.Genero,
       valor: e.Valor,
       lançamento: e.lancamento,
+      logo : e.logo,
+      trailer : e.trailer
     };
     await fetch("http://localhost:3000/games", {
       method: "POST",
@@ -32,72 +34,86 @@ function Creator() {
     <main className="  rounded-xl  ml-auto mr-auto  mt-32 bg-gray-900 ">
       <Nav />
       <form
-        className="flex-col flex mt-32 mb-32 "
+        className="flex-col flex mt-32 mb-32 border w-[70%] ml-auto mr-auto"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {/*  */}
-        <div className="flex flex-col mb-4">
-          <label className="text-white font-bold ml-44">Nome do Jogo</label>
+
+  <header className="flex   border-amber-300 h-50 mt-20">
+          <div  className="flex flex-col justify-between text-white font-bold ">
+              <label className=" ml-44">Nome do Jogo</label>
+              <label className=" ml-44">Url Image</label>
+              <label className=" ml-44">Valor</label>
+              <label className=" ml-44" htmlFor="logo">Url Logo</label>
+              <label className=" ml-44">Trailer link</label>
+              <label className=" ml-44">Gênero</label>
+              <label className=" ml-44">Classificação</label>
+            
+
+          </div>
+      <section className="flex flex-col w-1/2 justify-between ml-2">
           <input
-            className="  rounded-sm bg-gray-800  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 text-white w-1/2 ml-auto mr-auto"
+            className=" w-full rounded-sm bg-white  border border-purple-600  placeholder:opacity-70 px-2 text-black ml-auto mr-auto"
             placeholder="Nome do Jogo"
             {...register("name", { required: true })}
-          />
-        </div>
-
-        {/*  */}
-        <div className="text-white flex flex-col">
-          <label className="text-white font-bold ml-44">Url Image</label>
+            />
           <input
             type="text"
-            className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
+            className=" w-full bg-white rounded-sm border border-purple-600 z-10 px-2"
             {...register("Url", { required: true })}
             onChange={(e) => setImg(e.target.value)}
-          ></input>
-        </div>
+            placeholder="Imagem"></input>
 
-        {/*  */}
-        <div className="text-white flex flex-col">
-          <label className="text-white font-bold ml-44">Preço</label>
           <input
-            className=" w-1/2 ml-auto mr-auto rounded-sm border border-purple-600 z-10 px-2"
+            className="bg-white w-full rounded-sm border border-purple-600 z-10 px-2"
             {...register("Valor", { required: true })}
-          ></input>
-        </div>
+            placeholder="Valor" />
 
-        {/*  */}
-        <div className="flex flex-col mb-4 mt-4">
-          <label className="text-white font-bold ml-44">Gênero</label>
-          <select
-            className="  rounded-sm bg-gray-800  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 text-white w-1/2 ml-auto mr-auto "
+          <input className=" w-full rounded-sm bg-white  border border-purple-600   placeholder:opacity-70 px-2 text-black mr-auto "  placeholder="Logo" {...register("logo" , {required : true})}/>
+
+          <input className=" w-full rounded-sm bg-white  border border-purple-600   placeholder:opacity-70 px-2 text-black mr-auto "  placeholder="Trailer" {...register("trailer")}/>
+
+            <select
+            className=" rounded-sm border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 bg-white mr-auto "
             {...register("Genero", { required: true })}
-          >
-            <option>RPG</option>
-            <option>FPS</option>
-            <option>Ação</option>
-            <option>Esporte</option>
-            <option>Terror</option>
-            <option>Corrida</option>
+            >
+                <option>RPG</option>
+                <option>FPS</option>
+                <option>Ação</option>
+                <option>Esporte</option>
+                <option>Terror</option>
+                <option>Corrida</option>
           </select>
-        </div>
+            <select
+            className=" rounded-sm border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 bg-white mr-auto "
+            {...register("Classification", { required: true })}
+            >
+                <option>FPS</option>
+                <option>Ação</option>
+                <option>Esporte</option>
+                <option>Terror</option>
+                <option>Corrida</option>
+          </select>
+
+      </section>
 
         {/*  */}
-        <div className="flex flex-col">
-          <label htmlFor="" className="text-white ml-auto mr-auto font-bold">
+  </header>
+        <div className="flex flex-col mt-7">
+          <label htmlFor="" className="text-white ml-auto mr-auto">
             Lançamento
           </label>
           <input
             type="date"
-            className=" rounded-sm bg-gray-800  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2 text-white w-1/2 ml-auto mr-auto "
+            className=" rounded-sm bg-white  border border-purple-600  placeholder:text-white placeholder:opacity-70 px-2  w-1/2 ml-auto mr-auto "
             {...register("lancamento")}
           />
         </div>
 
-        <label className="text-white font-bold text-center mt-4">
+        <label className="text-white text-center mt-4">
           Descrição
         </label>
         <div className="flex mt-4 justify-evenly">
-          <Options imageUrl={Img} />
+          <Options imageUrl={Img} isInvisible/>
           <textarea
             className="  rounded-sm bg-gray-800  border border-purple-400 px-4  text-white h-72  "
             {...register("Description", { required: true })}

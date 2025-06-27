@@ -28,13 +28,14 @@ const Genders = () => {
         autoplay={true}
         modules={[Autoplay]}
         loop={true}
+        className=" shadow-2xl"
       >
         {Object.entries(list).map(([key, v]) => (
           <SwiperSlide className="">
             <div className="border-3 size-56 rounded-lg overflow-hidden  border-purple-800 cursor-pointer">
               <img src={v} className="" />
               <div
-                className="absolute shadow-blue-600  shadow-lg bg-gradient-to-t from-black to-transparent 
+                className="absolute shadow-blue-600  shadow-2xl bg-gradient-to-t from-black to-transparent 
                             w-55 bottom-0.5 rounded-lg h-1/2"
               >
                 <h1 className="text-white font-bold text-center">{key}</h1>

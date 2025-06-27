@@ -1,6 +1,6 @@
 import Router from "express";
 import emailVerification from "../controllers/verifyEmail.js";
-const router = Router();
-// router.post("/", emailVerification);
+const routerEmail = Router();
+routerEmail.post("/", emailVerification);
 
-export default router;
+export default routerEmail;

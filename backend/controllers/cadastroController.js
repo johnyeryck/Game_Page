@@ -2,14 +2,11 @@ import pool from "../db.js";
 import nodemailer from 'nodemailer'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
-import fs from "fs"
-import path from "path";
-import { url } from "inspector";
 dotenv.config()
 
 
 
-
+ 
 
 const transporte = nodemailer.createTransport(
   {
@@ -24,15 +21,15 @@ const transporte = nodemailer.createTransport(
 
 
 const createUser = async (req, res) => {
-  const { email, senha, user } = req.body;
-  const verification = await pool.query(
-    "SELECT * FROM usuarios WHERE email = $1",
-    [email],
-  );
+    const { email, senha, user } = req.body;
+    const verification = await pool.query(
+      "SELECT * FROM usuarios WHERE email = $1",
+      [email],
+    );
   
   
   if(verification.rows.length === 0 ){
-        const token = jwt.sign({email, senha , user} , process.env.KEY_TOKEN , {expiresIn : '40min'});
+        const token = jwt.sign({email, senha , user} , process.env.KEY_TOKEN , {expiresIn : '5min'});
         const url = `http://localhost:5173/confirmar?token=${token}`
             
             const emaildata = {

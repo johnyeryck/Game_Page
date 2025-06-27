@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import { v4 as uuidv4 } from "uuid";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import {ToastContainer , toast} from 'react-toastify'
 import Nav from "@/components/Nav";
-uuidv4();
 function CreateAccount() {
   const [showPassword, setShow] = useState<boolean>(false);
   const {
@@ -15,7 +14,6 @@ function CreateAccount() {
     const dados = {
       email: e.email,
       senha: e.senha,
-      id: uuidv4(),
       CanLoginIN: true,
       user: e.User,
     };
@@ -27,17 +25,17 @@ function CreateAccount() {
       body: JSON.stringify(dados),
     }).then((response) => {
       if (response.status === 200) {
-          alert("email de confirmação enviado")
+        toast.success(`Email de Verificação enviado para ${e.email}` )
       }
-      if (response.status === 400) {
-        alert("Erro ao criar conta");
+      if (response.status === 429) {
+        toast.error("Aguarde 1 minuto para poder reenviar o e-mail")
       }
     });
   };
   return (
     <header>
       <Nav />
-
+      <ToastContainer />
     <main className="text-white border-2 border-gray-500 w-1/4  h-auto mr-auto ml-auto rounded-sm mt-32  ">
       <header>
         <h1 className="font-bold text-center  mt-3 ">Crie sua Conta</h1>

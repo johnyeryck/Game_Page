@@ -4,6 +4,8 @@ export interface dataInterface {
   titulo: string;
   preco: string;
   imagem_url: string;
+  fullhd_img: string;
+  logo: string;
   categoria: string;
 }
 export const Mycontext = createContext<dataInterface[] | undefined>(undefined);

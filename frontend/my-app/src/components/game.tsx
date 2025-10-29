@@ -20,15 +20,8 @@ const Options = ({ imageUrl, name, isInvisible, gameid }: CartInterface) => {
   };
   return (
     <Link href={`/app/${slugify(name!)}/${gameid}`}>
-      <div className="overflow-hidden  transform transition-all hover:scale-110 rounded-xl ">
-        <Image
-          className=""
-          src={imageUrl}
-          alt="Jogo"
-          width={200}
-          height={100}
-        />
-
+      <div className="overflow-hidden h-60 w-50 scale-90  transform transition-all hover:brightness-50 rounded-xl">
+        <img className="rounded-lg size-full" src={imageUrl} alt="Jogo" />
         <button
           className="absolute bottom-4 right-4 bg-white p-2 rounded-full size-8 cursor-pointer border border-purple-600"
           hidden={isInvisible}

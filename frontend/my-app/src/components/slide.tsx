@@ -9,16 +9,17 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
-function Main() {
+import { Mycontext } from "@/context/context";
+function Slide() {
   const destaques: jogoint[] = [
     { name: "Grand Theft Auto VI" },
     { name: "Ghost of Tsushima Director's Cut" },
     { name: "Cyberpunk 2077" },
     { name: " DRAGON BALL: Sparking! ZERO" },
   ];
-  // const data = useContext(MyContext);
+  const data = useContext(Mycontext);
   return (
-    <header className="mb-52 ">
+    <header className=" ">
       <Swiper
         pagination={{ clickable: true }}
         slidesPerView={1}
@@ -53,7 +54,7 @@ function Main() {
                       src={game.logo}
                       className="absolute bottom-1/3 ml-4 w-56 "
                     />
-                    <button className=" font-bold  bottom-4 cursor-pointer  absolute ml-6 bg-white px-6 py-2 rounded-2xl  hover:bg-purple-600   hover:border-2 hover:text-white transition-colors duration-300 ">
+                    <button className=" font-bold  bg-white border border-black text-black shadow-2xl inset-shadow-amber-700 bottom-4 cursor-pointer  absolute ml-6  px-6 py-2 rounded-2xl   transition-colors duration-300 ">
                       Comprar Agora
                     </button>
                   </main>
@@ -65,4 +66,4 @@ function Main() {
     </header>
   );
 }
-export default Main;
+export default Slide;

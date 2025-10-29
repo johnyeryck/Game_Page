@@ -5,7 +5,7 @@ import express, {
 } from "express";
 import cors from "cors";
 import router from "./routes/routes.js";
-import type HandleError from "./errorHandle/errorsDefault.js";
+import type HandleError from "./middleware/errorHandle/errorsDefault.js";
 
 const app = express();
 app.use(express.json());

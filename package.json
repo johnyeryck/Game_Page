@@ -18,5 +18,8 @@
     "url": "https://github.com/johnyeryck/Game_Page/issues"
   },
   "homepage": "https://github.com/johnyeryck/Game_Page#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react-hook-form": "^7.65.0"
+  }
 }

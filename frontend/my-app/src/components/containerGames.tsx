@@ -3,20 +3,24 @@ import Game from "@components/game";
 import { useContext } from "react";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-function Layout() {
+import "swiper/css";
+import "swiper/css/navigation";
+
+interface containerProps {
+  categoria?: "RPG" | "Ação" | "Luta";
+}
+function Layout({ categoria }: containerProps) {
   const data = useContext(Mycontext);
   console.log(data);
+
   return (
-    <header className="m-auto w-[76%]  mt-20">
-      <h5 className="text-white pl-4 mb-6 font-extrabold">
-        Jogos De Tirar O fôlego
-      </h5>
-      <main className="flex justify-between">
+    <header className=" mt-20 ">
+      <Swiper slidesPerView={5} className=" w-[80%] ">
         {data &&
           data.map((game) =>
-            game.categoria === "RPG" ? (
-              <article className=" w-50">
-                <div className=" cursor-pointer ">
+            game.categoria === categoria ? (
+              <SwiperSlide key={game.id} className="mt-2  ">
+                <article className=" cursor-pointer ">
                   <Game
                     key={game.id}
                     imageUrl={game.imagem_url}
@@ -24,23 +28,23 @@ function Layout() {
                     gameid={game.id}
                   />
 
-                  <section className="">
-                    <div className="border h-[90%] text-white">
+                  <section className=" ">
+                    <div className=" w-full  px-2 text-white flex pb-5 h-20">
                       <p className="text-white font-bold mt-2 ml-2 ">
                         {game.titulo}
                       </p>
                     </div>
                     <div className="">
-                      <p className="text-white text-left font-medium ml-2 ">
+                      <p className="text-white text-left font-medium ml-4 ">
                         R${game.preco}
                       </p>
                     </div>
                   </section>
-                </div>
-              </article>
+                </article>
+              </SwiperSlide>
             ) : null
           )}
-      </main>
+      </Swiper>
     </header>
   );
 }

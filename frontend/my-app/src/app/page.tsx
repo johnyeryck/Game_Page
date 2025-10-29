@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import GameContainer from "@/components/containerGames";
 import { Mycontext } from "@/context/context";
 import { dataInterface } from "@/context/context";
+import Slide from "@/components/slide";
 export default function Home() {
   const [data, setData] = useState<dataInterface[] | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,8 +40,13 @@ export default function Home() {
   return (
     <>
       <Mycontext.Provider value={data}>
-        <Navbar />
-        <GameContainer />
+        <header className="bg-linear-to-t from-black to-transparent">
+          <Navbar />
+          <Slide />
+          <GameContainer categoria="Ação" />
+          <GameContainer categoria="RPG" />
+          <GameContainer categoria="Luta" />
+        </header>
       </Mycontext.Provider>
     </>
   );

@@ -56,6 +56,8 @@ git clone https://github.com/your-username/Game_Page.git
 ```
 On root run:
 
-'npm install' for dependences from backend and frontend
+npm install 
 
-run 'npm run dev' for run fullstack aplication
+for dependences from backend and frontend
+ 
+npm run dev :  for run fullstack aplication

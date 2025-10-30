@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently --names \"FRONTEND,BACKEND\" \"npm run frontend\" \"npm run backend\"",
     "backend": "npm run dev --prefix backend",
     "frontend": "npm run dev --prefix frontend",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +22,8 @@
   "description": "",
   "dependencies": {
     "react-hook-form": "^7.65.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }

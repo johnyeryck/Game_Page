@@ -54,3 +54,8 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/Game_Page.git
 ```
+On root run:
+
+'npm install' for dependences from backend and frontend
+
+run 'npm run dev' for run fullstack aplication

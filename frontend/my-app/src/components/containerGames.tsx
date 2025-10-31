@@ -11,7 +11,6 @@ interface containerProps {
 }
 function Layout({ categoria }: containerProps) {
   const data = useContext(Mycontext);
-  console.log(data);
 
   return (
     <header className=" mt-20 ">
@@ -19,13 +18,15 @@ function Layout({ categoria }: containerProps) {
         {data &&
           data.map((game) =>
             game.categoria === categoria ? (
-              <SwiperSlide key={game.id} className="mt-2  ">
-                <article className=" cursor-pointer ">
+              <SwiperSlide key={game.id} className="mt-2 ">
+                <article className=" cursor-pointer    ">
                   <Game
                     key={game.id}
                     imageUrl={game.imagem_url}
                     name={game.titulo}
                     gameid={game.id}
+                    height="240px"
+                    width="200"
                   />
 
                   <section className=" ">
@@ -36,7 +37,7 @@ function Layout({ categoria }: containerProps) {
                     </div>
                     <div className="">
                       <p className="text-white text-left font-medium ml-4 ">
-                        R${game.preco}
+                        R${game.valor}
                       </p>
                     </div>
                   </section>

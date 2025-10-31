@@ -5,12 +5,21 @@ import slugify from "../slugify";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 interface CartInterface {
-  imageUrl: string;
+  imageUrl: string | Blob | undefined;
   name?: string;
   isInvisible?: boolean;
   gameid?: number;
+  width?: string;
+  height?: string;
 }
-const Options = ({ imageUrl, name, isInvisible, gameid }: CartInterface) => {
+const Options = ({
+  imageUrl,
+  name,
+  isInvisible,
+  gameid,
+  width,
+  height,
+}: CartInterface) => {
   const CartFunction = async () => {
     // const db = await dbPromise;
     // await db.put("jogos", {
@@ -19,9 +28,12 @@ const Options = ({ imageUrl, name, isInvisible, gameid }: CartInterface) => {
     // });
   };
   return (
-    <Link href={`/app/${slugify(name!)}/${gameid}`}>
-      <div className="overflow-hidden h-60 w-50 scale-90  transform transition-all hover:brightness-50 rounded-xl">
-        <img className="rounded-lg size-full" src={imageUrl} alt="Jogo" />
+    <Link href={`/game/${slugify(name!)}/${gameid}`}>
+      <div
+        className="overflow-hidden scale-90  transform transition-all hover:brightness-50 rounded-xl"
+        style={{ width: `${width}`, height: `${height}` }}
+      >
+        <img className="rounded-lg  size-full" src={imageUrl} alt="Jogo" />
         <button
           className="absolute bottom-4 right-4 bg-white p-2 rounded-full size-8 cursor-pointer border border-purple-600"
           hidden={isInvisible}

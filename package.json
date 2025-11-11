@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "installBackend": "npm install --prefix backend",
+    "installFront": "npm install --prefix frontend/my-app",
+    "install": "concurrently  --names \"FRONTEND,BACKEND\" \"npm run installFront\" \"npm run installBackend\"",
     "dev": "concurrently --names \"FRONTEND,BACKEND\" \"npm run frontend\" \"npm run backend\"",
     "backend": "npm run dev --prefix backend",
     "frontend": "npm run dev --prefix frontend",

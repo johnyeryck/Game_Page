@@ -1,9 +1,10 @@
+"use client";
 import Nav from "@/components/Navbar";
 import Options from "@components/game";
-import MyContext from "@/context/gamesContext";
+import { Mycontext } from "@/context/context";
 import { dbPromise } from "@/indexDb";
 import { useContext, useEffect, useState } from "react";
-import LoginPage from "@/app/login/page";
+import LoginPage from "@/components/Login";
 import Image from "next/image";
 function Cart() {
   interface jogoInterface {
@@ -14,7 +15,7 @@ function Cart() {
   const isLoged = localStorage.getItem("isLoged");
   const [jogo, setjogo] = useState<jogoInterface[]>();
 
-  const data = useContext(MyContext);
+  const data = useContext(Mycontext);
   useEffect(() => {
     const fetchIDB = async () => {
       const dbCall = await dbPromise;
@@ -59,7 +60,7 @@ function Cart() {
                         <Image src="icons/carrinho.png" alt="" />
                       </button>
                     </div>
-                    <p className="text-white mt-20 ml-4">{game.preco}</p>
+                    <p className="text-white mt-20 ml-4">{game.valor}</p>
                     <button className="bg-purple-800 cursor-pointer border-2 border-purple-600 mb-2 rounded-md text-white w-40 mt-18 ml-3 hover:bg-purple-600">
                       Finalizar Compra
                     </button>

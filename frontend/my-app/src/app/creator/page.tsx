@@ -1,3 +1,4 @@
+"use client";
 import { useForm } from "react-hook-form";
 import Options from "@components/game";
 import { useState } from "react";
@@ -9,7 +10,7 @@ function Creator() {
     register,
     formState: { errors },
   } = useForm();
-  const [Img, setImg] = useState<string | undefined>();
+  const [Img, setImg] = useState<string | Blob | undefined>();
 
   const onSubmit = async (e: any) => {
     const data = {
@@ -111,7 +112,7 @@ function Creator() {
 
         <label className="text-white text-center mt-4">Descrição</label>
         <div className="flex mt-4 justify-evenly">
-          <Options imageUrl={Img} isInvisible />
+          <Options imageUrl={Img} HiddenCart />
           <textarea
             className="  rounded-sm bg-gray-800  border border-purple-400 px-4  text-white h-72  "
             {...register("Description", { required: true })}

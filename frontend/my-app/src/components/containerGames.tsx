@@ -1,20 +1,18 @@
-import { Mycontext } from "@/context/context";
 import Game from "@components/game";
-import { useContext } from "react";
 import { GoChevronRight, GoChevronLeft } from "react-icons/go";
 
-import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { dataInterface } from "@/context/context";
 
 interface containerProps {
   categoria?: "RPG" | "Ação" | "Luta";
   ContainerTitle?: string;
+  data : dataInterface[]
 }
-function Layout({ categoria, ContainerTitle }: containerProps) {
-  const data = useContext(Mycontext);
+function Layout({ categoria, ContainerTitle , data}: containerProps) {
   return (
     <header className=" mt-20 ">
       <Swiper slidesPerView={5} className=" w-[80%] ">

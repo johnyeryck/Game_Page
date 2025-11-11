@@ -2,19 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@public/logo2.png";
 import Carrinho from "@public/carrinho.png";
-import { Mycontext } from "@/context/context";
+import { dataInterface } from "@/context/context";
 
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import Game from "@components/game";
 import slugify from "@/slugify";
 import HoverPerfil from "./hoverPerfil";
-// import HoverPerfil from "./hoverPerfil";
-function Nav() {
+
+type dataProps = Omit<dataInterface , "tags">
+interface NavProps {
+  data : dataProps[]
+}
+function Nav({data}:NavProps) {
   const [res, setRes] = useState<
     | { titulo: string; statics: { imagem_url: string }; id: number }[]
     | undefined
   >();
-  const data = useContext(Mycontext);
+
   const searchGames = (e: any) => {
     const value = e.target.value;
 
@@ -31,6 +35,7 @@ function Nav() {
 
     setRes(limit);
   };
+
   return (
     <header className="w-full bg-black h-20 flex  top-0 fixed z-10 shadow-2xl shadow-black">
       <nav className="flex w-full h-1/2  m-auto">

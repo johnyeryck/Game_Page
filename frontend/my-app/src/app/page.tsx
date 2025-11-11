@@ -33,7 +33,6 @@ export default function Home() {
 
     fetchGames();
   }, []);
-
   if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
 
@@ -42,10 +41,15 @@ export default function Home() {
       <Mycontext.Provider value={data}>
         <header className="bg-linear-to-t from-black to-transparent">
           <Navbar />
-          <Slide />
-          <GameContainer categoria="Ação" />
-          <GameContainer categoria="RPG" />
-          <GameContainer categoria="Luta" />
+          <Slide id={[10, 2, 37, 20, 30]} />
+          <GameContainer
+            categoria="Ação"
+            ContainerTitle="Recomendados e Destaques"
+          />
+          <GameContainer
+            categoria="RPG"
+            ContainerTitle="Historias Para se Aventurar"
+          />
         </header>
       </Mycontext.Provider>
     </>

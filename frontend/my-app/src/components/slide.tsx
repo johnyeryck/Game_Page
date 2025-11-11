@@ -1,8 +1,11 @@
 import { SwiperSlide, Swiper } from "swiper/react";
-import { useContext } from "react";
+import { dataInterface } from "@/context/context";
+
+type slideTypes = Pick<dataInterface , "id" | "statics" >
 interface jogoint {
   name?: string;
   id?: number[];
+  data : slideTypes[]
 }
 import {
   Autoplay,
@@ -10,15 +13,8 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
-import { Mycontext } from "@/context/context";
-function Slide({ id }: jogoint) {
-  // const destaques: jogoint[] = [
-  //   { name: "Grand Theft Auto VI" },
-  //   { name: "Ghost of Tsushima Director's Cut" },
-  //   { name: "Cyberpunk 2077" },
-  //   { name: " DRAGON BALL: Sparking! ZERO" },
-  // ];
-  const data = useContext(Mycontext);
+function Slide({ id , data }: jogoint) {
+  
   return (
     <header className=" ">
       <Swiper

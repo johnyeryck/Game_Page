@@ -41,11 +41,8 @@ The project simulates a digital game store, combining a **Next.js frontend** wit
 ### **Backend**
 
 - **Node.js** — JavaScript runtime for the server
-- **Express.js** — Minimalist framework for building RESTful APIs
+- **Nest.js** — Minimalist framework for building RESTful APIs
 - **PostgreSQL** — Relational database for structured data
-- **JWT Authentication** — Secure token-based user authentication
-
----
 
 ## ⚙️ Installation
 

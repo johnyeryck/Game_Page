@@ -27,19 +27,9 @@ body {
 
 .myStyle .swiper-button-next,
 .myStyle .swiper-button-prev {
-  @apply bg-purple-950 absolute  top-7 size-7
-  rounded-full;
+  background-color: rgb(45, 3, 65);
+  border-radius: 50%;
   color: white;
-}
-.myStyle .swiper-button-prev {
-  margin-left: 92%;
-}
-
-.myStyle .swiper-button-next::after,
-.myStyle .swiper-button-prev::after {
-  font-size: 10px;
-}
-
-.swiper-pagination-bullet-active {
-  background: #9333ea !important;
+  width: 40px;
+  height: 40px;
 }

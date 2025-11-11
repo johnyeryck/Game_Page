@@ -13,7 +13,7 @@
 
 **GamesHub** is a full-stack web platform designed for video game enthusiasts.  
 It allows users to **create accounts**, **register new games**, **search for titles**, and **add them to a shopping cart**.  
-The project simulates a digital game store, combining a **Next.js frontend** with a **Node.js + Express backend**, and a **PostgreSQL database** for persistent storage.
+The project simulates a digital game store, combining a **Next.js frontend** with a **Node.js + Nest backend**, and a **PostgreSQL database** for persistent storage.
 
 ---
 
@@ -24,7 +24,7 @@ The project simulates a digital game store, combining a **Next.js frontend** wit
 - 🛒 Shopping cart functionality
 - 🔍 Search system for games by name or category
 - 💾 Persistent storage using PostgreSQL
-- ⚙️ RESTful API built with Express
+- ⚙️ RESTful API built with Nest js
 - 📱 Responsive UI powered by Tailwind CSS
 
 ---

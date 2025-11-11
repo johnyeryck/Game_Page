@@ -1,8 +1,0 @@
-POST http://localhost:4000/createaccount
-Content-Type: application/json
-
-{
-    "email" : "johnybombado@gmail.com",
-    "password" : "1234",
-    "username" : "johnyeryck",
-}
